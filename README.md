@@ -40,26 +40,40 @@ pnpm run start:dev  # ou npm run start:dev
 
 ## 📁 Structure générée (exemple)
 
+Lorsque vous créez un projet avec **NestJS Archi CLI**, la structure suivante sera générée :
+
 my-app/
 ├─ src/
-│  ├─ common/
-│  │  ├─ auth/
-│  │  ├─ http/
-│  │  ├─ logger/
-│  │  └─ notification/
-│  ├─ config/
-│  ├─ features/
-│  │  ├─ kafka/
-│  │  └─ user/
-│  ├─ utils/
-│  ├─ app.module.ts
-│  └─ main.ts
+│ ├─ app.module.ts
+│ ├─ main.ts
+│ ├─ common/ # Code réutilisable global
+│ │ ├─ auth/ # Authentification (modules, guards, DTOs)
+│ │ ├─ http/ # Clients HTTP et interceptors
+│ │ ├─ logger/ # Logging et interceptors
+│ │ └─ notification/ # Notification services
+│ ├─ config/ # Configurations globales (DB, env)
+│ ├─ features/ # Modules métier
+│ │ ├─ kafka/
+│ │ │ ├─ controllers/
+│ │ │ ├─ services/
+│ │ │ └─ kafka.module.ts
+│ │ └─ user/
+│ │ ├─ controllers/
+│ │ ├─ services/
+│ │ ├─ repositories/
+│ │ ├─ dtos/
+│ │ └─ user.module.ts
+│ └─ utils/ # Fonctions utilitaires (validators, crypt, generate)
 ├─ prisma/
+│ └─ schema.prisma
+├─ test/ # Tests unitaires et e2e
 ├─ docker-compose-dev.yml
 ├─ docker-compose-prod.yml
 ├─ Dockerfile
 ├─ tsconfig.json
+├─ tsconfig.build.json
 └─ package.json
 
+> Cette structure assure que le code est **modulaire, lisible et maintenable**, même pour des projets complexes avec plusieurs modules métier.
 
 
