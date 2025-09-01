@@ -41,6 +41,7 @@ pnpm run start:dev  # ou npm run start:dev
 ## 📁 Structure générée (exemple)
 
 Lorsque vous créez un projet avec **NestJS Archi CLI**, la structure suivante sera générée :
+
 ```
 my-app/
 ├─ src/
