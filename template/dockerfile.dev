@@ -1,0 +1,25 @@
+# ==========================
+#  NestJS DEV Dockerfile
+# ==========================
+FROM node:20-alpine AS development
+
+# Dépendances nécessaires
+RUN apk add --no-cache openssl libc6-compat
+
+# Dossier de travail
+WORKDIR /usr/src/app
+
+# Copie uniquement les fichiers de config pour installer les deps
+COPY package.json pnpm-lock.yaml ./
+
+# Installation des dépendances
+RUN npm install -g pnpm && pnpm install
+
+# Copie du code source
+COPY . .
+
+# Génération Prisma
+RUN npx prisma generate
+
+# Commande de dev (watch + poll pour Docker Desktop)
+CMD ["pnpm", "run", "start:dev", "--", "--poll=1000"]

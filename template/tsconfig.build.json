@@ -1,0 +1,27 @@
+{
+   "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "features/*": ["features/*"],
+      "config/*": ["config/*"],
+      "common/*": ["common/*"],
+      "utils/*": ["utils/*"]
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/__mocks__/**"
+  ]
+}

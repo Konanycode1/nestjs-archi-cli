@@ -1,0 +1,22 @@
+services:
+
+  delivery:
+    container_name: nestjs-archi-cli 
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "3500:3500"
+    volumes: []
+    command: pnpm run start:dev -- --poll=1000
+    env_file:
+      - .env
+    environment:
+      # Pointe sur le broker Kafka exposé par Server A
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    networks:
+      - kafka-network
+networks:
+  kafka-network:
+    external: true
+    

@@ -1,0 +1,20 @@
+services:
+
+  delivery:
+    container_name: nestjs-archi-cli 
+    image: konandev/nestjs-archi-cli :latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "3500:3500"
+    # command: pnpm run start:dev -- --poll=1000
+    env_file:
+      - .env.production
+    networks:
+      - prod
+networks:
+  prod:
+    external: true
+    

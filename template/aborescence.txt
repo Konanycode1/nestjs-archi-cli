@@ -1,0 +1,238 @@
+nestjs-repo-architecture/
+├─ dist/
+│  ├─ src/
+│  │  ├─ common/
+│  │  │  ├─ auth/
+│  │  │  │  ├─ dto/
+│  │  │  │  │  ├─ create-auth.dto.d.ts
+│  │  │  │  │  ├─ create-auth.dto.js
+│  │  │  │  │  ├─ create-auth.dto.js.map
+│  │  │  │  │  ├─ update-auth.dto.d.ts
+│  │  │  │  │  ├─ update-auth.dto.js
+│  │  │  │  │  └─ update-auth.dto.js.map
+│  │  │  │  ├─ jwt/
+│  │  │  │  │  ├─ auth.guard.d.ts
+│  │  │  │  │  ├─ auth.guard.js
+│  │  │  │  │  ├─ auth.guard.js.map
+│  │  │  │  │  ├─ constant.d.ts
+│  │  │  │  │  ├─ constant.js
+│  │  │  │  │  ├─ constant.js.map
+│  │  │  │  │  ├─ jwt.guard.d.ts
+│  │  │  │  │  ├─ jwt.guard.js
+│  │  │  │  │  ├─ jwt.guard.js.map
+│  │  │  │  │  ├─ jwt.strategy.d.ts
+│  │  │  │  │  ├─ jwt.strategy.js
+│  │  │  │  │  └─ jwt.strategy.js.map
+│  │  │  │  ├─ role/
+│  │  │  │  │  ├─ role.decorators.d.ts
+│  │  │  │  │  ├─ role.decorators.js
+│  │  │  │  │  ├─ role.decorators.js.map
+│  │  │  │  │  ├─ role.enum.d.ts
+│  │  │  │  │  ├─ role.enum.js
+│  │  │  │  │  ├─ role.enum.js.map
+│  │  │  │  │  ├─ role.guard.d.ts
+│  │  │  │  │  ├─ role.guard.js
+│  │  │  │  │  └─ role.guard.js.map
+│  │  │  │  ├─ auth.controller.d.ts
+│  │  │  │  ├─ auth.controller.js
+│  │  │  │  ├─ auth.controller.js.map
+│  │  │  │  ├─ auth.module.d.ts
+│  │  │  │  ├─ auth.module.js
+│  │  │  │  ├─ auth.module.js.map
+│  │  │  │  ├─ auth.service.d.ts
+│  │  │  │  ├─ auth.service.js
+│  │  │  │  └─ auth.service.js.map
+│  │  │  ├─ http/
+│  │  │  │  ├─ http-client.module.d.ts
+│  │  │  │  ├─ http-client.module.js
+│  │  │  │  ├─ http-client.module.js.map
+│  │  │  │  ├─ http-client.service.d.ts
+│  │  │  │  ├─ http-client.service.js
+│  │  │  │  └─ http-client.service.js.map
+│  │  │  ├─ logger/
+│  │  │  │  ├─ error.logging.d.ts
+│  │  │  │  ├─ error.logging.js
+│  │  │  │  ├─ error.logging.js.map
+│  │  │  │  ├─ logging.interceptor.d.ts
+│  │  │  │  ├─ logging.interceptor.js
+│  │  │  │  └─ logging.interceptor.js.map
+│  │  │  └─ notification/
+│  │  │     ├─ notification.module.d.ts
+│  │  │     ├─ notification.module.js
+│  │  │     ├─ notification.module.js.map
+│  │  │     ├─ notification.service.d.ts
+│  │  │     ├─ notification.service.js
+│  │  │     └─ notification.service.js.map
+│  │  ├─ config/
+│  │  │  ├─ db.d.ts
+│  │  │  ├─ db.js
+│  │  │  ├─ db.js.map
+│  │  │  ├─ db.module.d.ts
+│  │  │  ├─ db.module.js
+│  │  │  ├─ db.module.js.map
+│  │  │  ├─ env.validation.d.ts
+│  │  │  ├─ env.validation.js
+│  │  │  └─ env.validation.js.map
+│  │  ├─ features/
+│  │  │  ├─ kafka/
+│  │  │  │  ├─ kafka.consumer.controller.d.ts
+│  │  │  │  ├─ kafka.consumer.controller.js
+│  │  │  │  ├─ kafka.consumer.controller.js.map
+│  │  │  │  ├─ kafka.consumer.service.d.ts
+│  │  │  │  ├─ kafka.consumer.service.js
+│  │  │  │  ├─ kafka.consumer.service.js.map
+│  │  │  │  ├─ kafka.module.d.ts
+│  │  │  │  ├─ kafka.module.js
+│  │  │  │  ├─ kafka.module.js.map
+│  │  │  │  ├─ kafka.producer.service.d.ts
+│  │  │  │  ├─ kafka.producer.service.js
+│  │  │  │  └─ kafka.producer.service.js.map
+│  │  │  └─ user/
+│  │  │     ├─ core/
+│  │  │     │  ├─ dto/
+│  │  │     │  │  ├─ create-user.dto.d.ts
+│  │  │     │  │  ├─ create-user.dto.js
+│  │  │     │  │  ├─ create-user.dto.js.map
+│  │  │     │  │  ├─ update-user.dto.d.ts
+│  │  │     │  │  ├─ update-user.dto.js
+│  │  │     │  │  └─ update-user.dto.js.map
+│  │  │     │  ├─ interface/
+│  │  │     │  │  ├─ user.repository.interface.d.ts
+│  │  │     │  │  ├─ user.repository.interface.js
+│  │  │     │  │  └─ user.repository.interface.js.map
+│  │  │     │  └─ use-case/
+│  │  │     │     ├─ user.service.d.ts
+│  │  │     │     ├─ user.service.js
+│  │  │     │     └─ user.service.js.map
+│  │  │     ├─ inBound/
+│  │  │     │  ├─ user.controller.d.ts
+│  │  │     │  ├─ user.controller.js
+│  │  │     │  └─ user.controller.js.map
+│  │  │     ├─ outBound/
+│  │  │     │  ├─ user.repository.d.ts
+│  │  │     │  ├─ user.repository.js
+│  │  │     │  └─ user.repository.js.map
+│  │  │     ├─ user.module.d.ts
+│  │  │     ├─ user.module.js
+│  │  │     └─ user.module.js.map
+│  │  ├─ utils/
+│  │  │  ├─ validators/
+│  │  │  │  ├─ phoneNumber.validate.d.ts
+│  │  │  │  ├─ phoneNumber.validate.js
+│  │  │  │  └─ phoneNumber.validate.js.map
+│  │  │  ├─ crypt.d.ts
+│  │  │  ├─ crypt.js
+│  │  │  ├─ crypt.js.map
+│  │  │  ├─ generate.d.ts
+│  │  │  ├─ generate.js
+│  │  │  ├─ generate.js.map
+│  │  │  ├─ logging.prisma.d.ts
+│  │  │  ├─ logging.prisma.js
+│  │  │  ├─ logging.prisma.js.map
+│  │  │  ├─ validation-fields.d.ts
+│  │  │  ├─ validation-fields.js
+│  │  │  ├─ validation-fields.js.map
+│  │  │  ├─ validation-option.d.ts
+│  │  │  ├─ validation-option.js
+│  │  │  └─ validation-option.js.map
+│  │  ├─ app.controller.d.ts
+│  │  ├─ app.controller.js
+│  │  ├─ app.controller.js.map
+│  │  ├─ app.module.d.ts
+│  │  ├─ app.module.js
+│  │  ├─ app.module.js.map
+│  │  ├─ app.service.d.ts
+│  │  ├─ app.service.js
+│  │  ├─ app.service.js.map
+│  │  ├─ main.d.ts
+│  │  ├─ main.js
+│  │  └─ main.js.map
+│  └─ tsconfig.build.tsbuildinfo
+├─ prisma/
+│  └─ schema.prisma
+├─ src/
+│  ├─ common/
+│  │  ├─ auth/
+│  │  │  ├─ dto/
+│  │  │  │  ├─ create-auth.dto.ts
+│  │  │  │  └─ update-auth.dto.ts
+│  │  │  ├─ jwt/
+│  │  │  │  ├─ auth.guard.ts
+│  │  │  │  ├─ constant.ts
+│  │  │  │  ├─ jwt.guard.ts
+│  │  │  │  └─ jwt.strategy.ts
+│  │  │  ├─ role/
+│  │  │  │  ├─ role.decorators.ts
+│  │  │  │  ├─ role.enum.ts
+│  │  │  │  └─ role.guard.ts
+│  │  │  ├─ auth.controller.ts
+│  │  │  ├─ auth.module.ts
+│  │  │  └─ auth.service.ts
+│  │  ├─ http/
+│  │  │  ├─ http-client.module.ts
+│  │  │  └─ http-client.service.ts
+│  │  ├─ logger/
+│  │  │  ├─ error.logging.ts
+│  │  │  └─ logging.interceptor.ts
+│  │  └─ notification/
+│  │     ├─ notification.module.ts
+│  │     └─ notification.service.ts
+│  ├─ config/
+│  │  ├─ db.module.ts
+│  │  ├─ db.ts
+│  │  └─ env.validation.ts
+│  ├─ features/
+│  │  ├─ kafka/
+│  │  │  ├─ kafka.consumer.controller.ts
+│  │  │  ├─ kafka.consumer.service.ts
+│  │  │  ├─ kafka.module.ts
+│  │  │  └─ kafka.producer.service.ts
+│  │  └─ user/
+│  │     ├─ core/
+│  │     │  ├─ dto/
+│  │     │  │  ├─ create-user.dto.ts
+│  │     │  │  └─ update-user.dto.ts
+│  │     │  ├─ interface/
+│  │     │  │  └─ user.repository.interface.ts
+│  │     │  └─ use-case/
+│  │     │     └─ user.service.ts
+│  │     ├─ inBound/
+│  │     │  └─ user.controller.ts
+│  │     ├─ outBound/
+│  │     │  └─ user.repository.ts
+│  │     └─ user.module.ts
+│  ├─ utils/
+│  │  ├─ validators/
+│  │  │  └─ phoneNumber.validate.ts
+│  │  ├─ crypt.ts
+│  │  ├─ generate.ts
+│  │  ├─ logging.prisma.ts
+│  │  ├─ validation-fields.ts
+│  │  └─ validation-option.ts
+│  ├─ app.controller.spec.ts
+│  ├─ app.controller.ts
+│  ├─ app.module.ts
+│  ├─ app.service.ts
+│  └─ main.ts
+├─ test/
+│  ├─ app.e2e-spec.ts
+│  └─ jest-e2e.json
+├─ .dockerignore
+├─ .env
+├─ .env.example
+├─ .env.production
+├─ .gitignore
+├─ .prettierrc
+├─ aborescence.txt
+├─ docker-compose-dev.yml
+├─ docker-compose-prod.yml
+├─ Dockerfile
+├─ dockerfile.dev
+├─ eslint.config.mjs
+├─ nest-cli.json
+├─ package.json
+├─ pnpm-lock.yaml
+├─ README.md
+├─ tsconfig.build.json
+├─ tsconfig.build.tsbuildinfo
+└─ tsconfig.json
