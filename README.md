@@ -43,37 +43,97 @@ pnpm run start:dev  # ou npm run start:dev
 Lorsque vous créez un projet avec **NestJS Archi CLI**, la structure suivante sera générée :
 
 ```
-my-app/
-├─ src/
-│ ├─ app.module.ts
-│ ├─ main.ts
-│ ├─ common/ # Code réutilisable global
-│ │ ├─ auth/ # Authentification (modules, guards, DTOs)
-│ │ ├─ http/ # Clients HTTP et interceptors
-│ │ ├─ logger/ # Logging et interceptors
-│ │ └─ notification/ # Notification services
-│ ├─ config/ # Configurations globales (DB, env)
-│ ├─ features/ # Modules métier
-│ │ ├─ kafka/
-│ │ │ ├─ controllers/
-│ │ │ ├─ services/
-│ │ │ └─ kafka.module.ts
-│ │ └─ user/
-│ │ ├─ controllers/
-│ │ ├─ services/
-│ │ ├─ repositories/
-│ │ ├─ dtos/
-│ │ └─ user.module.ts
-│ └─ utils/ # Fonctions utilitaires (validators, crypt, generate)
-├─ prisma/
-│ └─ schema.prisma
-├─ test/ # Tests unitaires et e2e
+nestjs-repos/
+│  ├─ prisma/
+│  │  └─ schema.prisma
+│  ├─ src/
+│  ├─ common/
+│  │  ├─ auth/
+│  │  │  ├─ dto/
+│  │  │  │  ├─ create-auth.dto.ts
+│  │  │  │  └─ update-auth.dto.ts
+│  │  │  ├─ jwt/
+│  │  │  │  ├─ auth.guard.ts
+│  │  │  │  ├─ constant.ts
+│  │  │  │  ├─ jwt.guard.ts
+│  │  │  │  └─ jwt.strategy.ts
+│  │  │  ├─ role/
+│  │  │  │  ├─ role.decorators.ts
+│  │  │  │  ├─ role.enum.ts
+│  │  │  │  └─ role.guard.ts
+│  │  │  ├─ auth.controller.ts
+│  │  │  ├─ auth.module.ts
+│  │  │  └─ auth.service.ts
+│  │  ├─ http/
+│  │  │  ├─ http-client.module.ts
+│  │  │  └─ http-client.service.ts
+│  │  ├─ logger/
+│  │  │  ├─ error.logging.ts
+│  │  │  └─ logging.interceptor.ts
+│  │  └─ notification/
+│  │     ├─ notification.module.ts
+│  │     └─ notification.service.ts
+│  ├─ config/
+│  │  ├─ db.module.ts
+│  │  ├─ db.ts
+│  │  └─ env.validation.ts
+│  ├─ features/
+│  │  ├─ kafka/
+│  │  │  ├─ kafka.consumer.controller.ts
+│  │  │  ├─ kafka.consumer.service.ts
+│  │  │  ├─ kafka.module.ts
+│  │  │  └─ kafka.producer.service.ts
+│  │  └─ user/
+│  │     ├─ core/
+│  │     │  ├─ dto/
+│  │     │  │  ├─ create-user.dto.ts
+│  │     │  │  └─ update-user.dto.ts
+│  │     │  ├─ interface/
+│  │     │  │  └─ user.repository.interface.ts
+│  │     │  └─ use-case/
+│  │     │     └─ user.service.ts
+│  │     ├─ inBound/
+│  │     │  └─ user.controller.ts
+│  │     ├─ outBound/
+│  │     │  └─ user.repository.ts
+│  │     └─ user.module.ts
+│  ├─ utils/
+│  │  ├─ validators/
+│  │  │  └─ phoneNumber.validate.ts
+│  │  ├─ crypt.ts
+│  │  ├─ generate.ts
+│  │  ├─ logging.prisma.ts
+│  │  ├─ validation-fields.ts
+│  │  └─ validation-option.ts
+│  ├─ app.controller.spec.ts
+│  ├─ app.controller.ts
+│  ├─ app.module.ts
+│  ├─ app.service.ts
+│  └─ main.ts
+├─ test/
+│  ├─ app.e2e-spec.js
+│  ├─ app.e2e-spec.ts
+│  └─ jest-e2e.json
+├─ .dockerignore
+├─ .env
+├─ .env.example
+├─ .env.production
+├─ .gitignore
+├─ .prettierrc
+├─ aborescence.txt
 ├─ docker-compose-dev.yml
 ├─ docker-compose-prod.yml
 ├─ Dockerfile
-├─ tsconfig.json
+├─ dockerfile.dev
+├─ eslint.config.mjs
+├─ nest-cli.json
+├─ package.json
+├─ pnpm-lock.yaml
+├─ README.md
 ├─ tsconfig.build.json
-└─ package.json
+├─ tsconfig.build.tsbuildinfo
+└─ tsconfig.json
+
 
 > Cette structure assure que le code est **modulaire, lisible et maintenable**, même pour des projets complexes avec plusieurs modules métier.
 
