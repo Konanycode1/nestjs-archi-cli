@@ -39,14 +39,6 @@ export class ConsumerController   {
             ? JSON.parse(message)
             : message;
 
-        //   this.logger.log('Message parsed:', parsed);
-
-          // Décommentez ces lignes quand vous êtes prêt
-          // const {sellerDetails, customerDetails, orderDetails} = parsed;
-          // const {address: sellerAddress} = sellerDetails;
-          // const { address: customerAddress } = customerDetails;
-          // const { deliveryType, status } = orderDetails;
-
           Promise.resolve().then(async () => {const response = await this.deliveryService.createDelivery(parsed);});
         //   this.logger.log('Response from delivery service:', response);
            const title = "nestjs-archi-cliture";
