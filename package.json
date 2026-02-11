@@ -1,6 +1,6 @@
 {
   "name": "nestjs-archi-cli",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "CLI tool to quickly scaffold a NestJS project with a predefined clean architecture",
   "bin": {
     "nestjs-archi": "dist/index.js"
