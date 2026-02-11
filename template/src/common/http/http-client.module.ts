@@ -10,7 +10,7 @@ import * as https from 'https';
     HttpModule.register({
         timeout: 300000,
         maxRedirects: 5,
-        baseURL: 'https://example.com/v2/',
+        baseURL: 'https://example.com/v2/', // please change a base url 
         httpAgent: new http.Agent({ keepAlive: true }),
         httpsAgent: new https.Agent({ keepAlive: true }),
       // baseURL peut être défini ici ou passé à chaque appel

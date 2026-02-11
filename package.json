@@ -1,11 +1,11 @@
 {
   "name": "nestjs-archi-cli",
-  "version": "1.0.0",
-    "description": "CLI tool to quickly scaffold a NestJS project with a predefined clean architecture",
+  "version": "1.0.1",
+  "description": "CLI tool to quickly scaffold a NestJS project with a predefined clean architecture",
   "bin": {
     "nestjs-archi": "dist/index.js"
   },
-    "keywords": [
+  "keywords": [
     "nestjs",
     "cli",
     "architecture",
@@ -13,14 +13,14 @@
     "generator",
     "typescript"
   ],
-    "author": "Abraham konan abrahamkonany@gmail.com",
-    "license": "MIT",
-    "homepage": "https://github.com/Konanycode1/nestjs-archi-cli#readme",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Konanycode1/nestjs-archi-cli.git"
+  "author": "Abraham konan abrahamkonany@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/Konanycode1/nestjs-archi-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Konanycode1/nestjs-archi-cli.git"
   },
-   "bugs": {
+  "bugs": {
     "url": "https://github.com/Konanycode1/nestjs-archi-cli/issues"
   },
   "files": [

@@ -53,7 +53,7 @@ import {
         where: { name: 'USER' },
       });
       const existDelivery = await this.prisma.role.findFirst({
-        where: { name: 'DELIVERY' },
+        where: { name: 'CLIENT' },
       });
       const existAdmin = await this.prisma.role.findFirst({
         where: { name: 'ADMIN' },
@@ -78,7 +78,7 @@ import {
         !existDelivery &&
           this.prisma.role.create({
             data: {
-              name: 'DELIVERY',
+              name: 'CLIENT',
             },
           }),
         !existSuperAdmin &&

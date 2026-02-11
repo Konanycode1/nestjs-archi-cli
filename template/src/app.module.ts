@@ -11,6 +11,7 @@ import { KafkaModule } from 'features/kafka/kafka.module';
 import { UsersModule } from 'features/user/user.module';
 import { AuthModule } from 'common/auth/auth.module';
 import { HttpClientModule } from 'common/http/http-client.module';
+import { NodemailerModule } from 'common/nodemailer/nodemailer.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from 'common/http/http-client.module';
     KafkaModule,
     UsersModule,
     AuthModule,
+    NodemailerModule
 
   ],
   controllers: [AppController],
