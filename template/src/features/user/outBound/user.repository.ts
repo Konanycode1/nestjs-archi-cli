@@ -7,7 +7,6 @@ import { CreateUserDto } from 'features/user/core/dto/create-user.dto';
 import { IsPhoneNumber } from 'class-validator';
 import fa from 'zod/v4/locales/fa.cjs';
 import { parse } from 'path';
-import { DeliveryStatus } from 'features/delivery/core/dto/create-delivery.dto';
 
 // Implementation du userRepository
 @Injectable()
@@ -125,14 +124,6 @@ export class UserRepository implements InterfaceUserRepository, OnModuleInit {
                 updatedAt: true,
                 phone: true,
                 email: true,
-                numberPermis: true,
-                numberCarteGrise: true,
-                numberAssurance: true,
-                numberAssuranceDate: true,
-                numberCarteGriseDate: true,
-                numberPermisDate: true,
-                numberMatricule: true,
-                numberMatriculeDate: true,
                 password: true,
                 role: {
                     select: {
@@ -170,14 +161,6 @@ export class UserRepository implements InterfaceUserRepository, OnModuleInit {
                 updatedAt: true,
                 phone: true,
                 email: true,
-                numberPermis: true,
-                numberCarteGrise: true,
-                numberAssurance: true,
-                numberAssuranceDate: true,
-                numberCarteGriseDate: true,
-                numberPermisDate: true,
-                numberMatricule: true,
-                numberMatriculeDate: true,
                 password: false,
                 role: {
                     select: {
@@ -209,14 +192,6 @@ export class UserRepository implements InterfaceUserRepository, OnModuleInit {
                 updatedAt: true,
                 phone: true,
                 email: true,
-                numberPermis: true,
-                numberCarteGrise: true,
-                numberAssurance: true,
-                numberAssuranceDate: true,
-                numberCarteGriseDate: true,
-                numberPermisDate: true,
-                numberMatricule: true,
-                numberMatriculeDate: true,
                 password: false,
                 role: {
                     select: {
@@ -262,71 +237,5 @@ export class UserRepository implements InterfaceUserRepository, OnModuleInit {
             },
         });
         return user;
-    }
-
-    async userDeliveryListe(id: string, query: any ): Promise<any> {
-        const limit = parseInt(query.limit)|| 10;
-        const page = parseInt(query.page) || 1;
-        const skip = (page - 1) * limit;
-        const status = query.status as DeliveryStatus;
-        const where: { assignedDriverId: string; status?: DeliveryStatus } = {
-            assignedDriverId: id,
-        };
-        if (status) {
-            where.status = status;
-        }
-        const [deliveries, totalDeliveries] = await Promise.all([
-            await this.db.delivery.findMany({
-                where,
-                skip: skip,
-                take: limit,
-                orderBy: { createdAt: 'desc' },
-                include: {
-                    pickupAddress: true,
-                    deliveryAddress: true
-                },
-            }),
-            await this.db.delivery.count({ where }),
-        ])
-        return {
-            data: deliveries,
-            totalItems: totalDeliveries,
-            totalPages: Math.ceil(totalDeliveries / limit),
-            page,
-            limit
-        };
-    }
-    async statisticDelivery(id:string): Promise<any> {
-        
-          const assignedCount = await this.db.delivery.count({
-                where: {
-                assignedDriverId: id,
-                status: {
-                    in: [
-                    DeliveryStatus.ASSIGNED,
-                    DeliveryStatus.IN_TRANSIT,
-                    DeliveryStatus.PICKED_UP,
-                    ],
-                },
-                },
-            });
-
-            const deliveredCount = await this.db.delivery.count({
-                where: {
-                assignedDriverId: id,
-                status: DeliveryStatus.DELIVERED,
-                },
-            });
-
-            const pendingCount = await this.db.delivery.count({
-                where: {
-                status: DeliveryStatus.PENDING,
-                },
-            });
-        return {
-            deliveryInProgress :assignedCount,
-            deliveryFinished :deliveredCount,
-            deliveryAvailable :pendingCount
-        };
     }
 }

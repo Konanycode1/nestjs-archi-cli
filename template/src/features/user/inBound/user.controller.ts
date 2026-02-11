@@ -40,36 +40,6 @@ export class UsersController {
     return res.status(200).json({...users});
   }
 
-  @Get("/statistic/")
-  @UseGuards(JwtGuard)
-  async userStatistic(
-    @Res() res: Response,
-    @Request() req: any
-  ): Promise<Response> {
-    const { id } = req.user;
-    const users = await  this.usersService.statisticDelivery(id);
-    if(users.success === false)
-    {
-      return res.status(400).json({...users});
-    }
-    return res.status(200).json({...users});
-  }
-
-  @Get('/delivery')
-  @UseGuards(JwtGuard)
-  async findAllDelivery(
-    @Query() query: any,
-    @Res() res: Response,
-    @Request() req: any
-  ): Promise<Response> {
-    const { id } = req.user;
-    const users = await  this.usersService.userDeliveryListe(id, query);
-    if(users.success === false)
-    {
-      return res.status(400).json({...users});
-    }
-    return res.status(200).json({...users});
-  }
 
   @Get(':id')
   @UseGuards(JwtGuard)

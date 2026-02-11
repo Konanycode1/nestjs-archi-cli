@@ -86,16 +86,4 @@ export class UsersService  {
     if(!user) return { success: false, message: 'User not deleted' };
     return { success: true, message: 'User deleted successfully' };
   }
-
-  async userDeliveryListe(id: string, query: any ): Promise<any> {
-    const deliveries = await this.userRepository.userDeliveryListe(id, query);
-    if(!deliveries) return { success: false, message: 'Deliveries not found' };
-    return { success: true, message: 'Deliveries found', ...deliveries };
-  }
-
-  async statisticDelivery(id: string): Promise<any> {
-    const deliveries = await this.userRepository.statisticDelivery(id);
-    if(!deliveries) return { success: false, message: 'Deliveries not found' };
-    return { success: true, message: 'Deliveries found', ...deliveries };
-  }
 }

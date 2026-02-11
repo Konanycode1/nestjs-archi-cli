@@ -14,7 +14,5 @@ export abstract class InterfaceUserRepository {
   abstract findByPhone(phone: string): Promise<User | null>;
   abstract findAll(limit: number | 10, page: number | 1): Promise<Array<User>>;
   abstract edit(id: string, dto: UpdateUserDto): Promise<User>;
-  abstract userDeliveryListe(id: string, query: any ): Promise<any>;
   abstract delete(id: string): Promise<User>;
-  abstract statisticDelivery(id: string): Promise<any>;
 }

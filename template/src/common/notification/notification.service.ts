@@ -23,7 +23,7 @@ export class NotificationServiceSignale {
     this.oneSignalAppId = env.ONESIGNAL_APP_ID; // this.configService.get<string>('ONE_SIGNAL_APP_ID');
     this.oneSignalApiKey = env.ONESIGNAL_API_KEY;
     this.channelId = env.ONESIGNAL_CHANNEL_ID;
-    this.oneSignalRestApiUrl = env.ONESIGNAL_REST_API_URL
+    this.oneSignalRestApiUrl = env.ONESIGNAL_API_URL
   }
 
   async sendNotificationPush({

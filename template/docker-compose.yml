@@ -1,0 +1,59 @@
+services:
+  devisio:
+    container_name: devisio
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "3500:3500"
+    command: pnpm run start:dev -- --poll=1000
+    env_file:
+      - .env
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9094
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - kafka-networks
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: devisio-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: devisio
+      POSTGRES_PASSWORD: devisio_pass
+      POSTGRES_DB: devisio_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - devisio_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devisio -d devisio_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks:
+      - kafka-networks
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: devisio-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@devisio.app
+      PGADMIN_DEFAULT_PASSWORD: adminpass
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - kafka-networks
+
+volumes:
+  devisio_pgdata:
+
+networks:
+  kafka-networks:
+    external: true

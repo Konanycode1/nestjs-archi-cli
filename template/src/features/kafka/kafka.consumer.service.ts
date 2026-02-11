@@ -1,7 +1,6 @@
 // kafka-consumer.service.ts
 import { Injectable, OnModuleInit, OnModuleDestroy, Logger } from '@nestjs/common';
 import { Kafka, Consumer } from 'kafkajs';
-import { DeliveryService } from 'features/delivery/core/use-case/delivery.service';
 import { env } from 'config/env.validation';
 
 @Injectable()
@@ -10,7 +9,9 @@ export class ConsumerService implements OnModuleInit, OnModuleDestroy {
   private kafka: Kafka;
   private consumer: Consumer;
 
-  constructor(private readonly deliveryService: DeliveryService) {
+  constructor(
+  )
+     {
     this.kafka = new Kafka({
       clientId: env.KAFKA_CLIENT_ID,
       brokers:Array.isArray(env.KAFKA_BROKERS) ? env.KAFKA_BROKERS : env.KAFKA_BROKERS.split(',')
@@ -75,8 +76,8 @@ export class ConsumerService implements OnModuleInit, OnModuleDestroy {
     this.logger.log('Message reçu du topic order_status_changed:', message);
     
     try {
-      const response = await this.deliveryService.createDelivery(message);
-      this.logger.log('Response from delivery service:', response);
+      // ajouter votre requete ici 
+      this.logger.log('Response from delivery service:');
     } catch (error) {
       this.logger.error('Error in delivery service:', error);
     }

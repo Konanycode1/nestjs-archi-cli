@@ -12,14 +12,11 @@ import {
   Payload,
 } from '@nestjs/microservices';
 import { NotificationServiceSignale } from 'common/notification/notification.service';
-import { DeliveryService } from 'features/delivery/core/use-case/delivery.service';
 
 @Controller()
 export class ConsumerController   {
    private readonly logger = new Logger(ConsumerController.name);
   constructor(
-    @Inject(forwardRef(() => DeliveryService))
-    private readonly deliveryService : DeliveryService,
     private readonly notificationService: NotificationServiceSignale
   ) {}
     @EventPattern('test-kafka2')
@@ -39,7 +36,6 @@ export class ConsumerController   {
             ? JSON.parse(message)
             : message;
 
-          Promise.resolve().then(async () => {const response = await this.deliveryService.createDelivery(parsed);});
         //   this.logger.log('Response from delivery service:', response);
            const title = "nestjs-archi-cliture";
             const body = `Nouvelle commande disponible pour vous`;

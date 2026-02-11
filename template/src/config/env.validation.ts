@@ -25,10 +25,7 @@ const envSchema = z.object({
     ONESIGNAL_APP_ID: z.string({message: 'ONESIGNAL_APP_ID is required'}),
     ONESIGNAL_API_KEY: z.string({message: 'ONESIGNAL_API_KEY is required'}),
     ONESIGNAL_CHANNEL_ID: z.string({message: 'ONESIGNAL_CHANNEL_ID is required'}),
-    ONESIGNAL_REST_API_URL: z.string({message: 'ONESIGNAL_REST_API_URL is required'}),
-    ONESIGNAL_REST_API_KEY: z.string({message: 'ONESIGNAL_REST_API_URL is required'}),
-    ONESIGNAL_REST_API_URL_CI: z.string({message: 'ONESIGNAL_REST_API_URL_CI is required'}),
-    ONESIGNAL_REST_API_URL_US: z.string({message: 'ONESIGNAL_REST_API_URL_US is required'}),
+    ONESIGNAL_API_URL: z.string({message: 'ONESIGNAL_REST_API_URL is required'}),
 
     });
 
